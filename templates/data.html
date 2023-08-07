@@ -1,0 +1,210 @@
+{% extends 'main.html' %}
+{% load l10n %}
+{% load i18n %}
+
+{% block content %}
+<div class="container" style="width: 100%; overflow-y: scroll; max-height: 600px;">
+  <div class="row mt-2">
+    <div class="col">
+        <div class="row mt-2">
+            <div class="col-sm">
+                <div class="shadow p-3 mb-2 bg-dark rounded">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-white">
+                            Condiciones Actuales
+                        </h6>
+                        <h6 class="text-white">
+                            Fecha y Hora de Medición &nbsp;{% language 'es' %}{{ current.fecha_medicion|date:'d/m/Y - H:i:s e' }}{% endlanguage %}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-thermometer-half my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Temperatura</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">{{ current.temp_c }}°C</h3>
+                                        <h3 class="text-dark">{{ current.temp_f }}°F</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-tint my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Humedad Relativa</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">{{ current.relative_humidity }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-wind my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Velocidad del Viento</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">{{ current.wind_kph }}kph</h3>
+                                        <h3 class="text-dark">{{ current.wind_mph }}mph</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-water my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Evapotranspiración ETo</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">{{ current.eto }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-cloud-rain my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Precipitación Acumulada</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">0.0</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <div class="shadow p-3 mb-2 bg-body rounded">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="col-2">
+                                    <i class="fas fa-wind my-icons" style="font-size: large;"></i>
+                                </div>
+                                <div class="col-10 align-items-center">
+                                    <div class="row">
+                                        <h6 class="text-info">Dirección del Viento</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2 mb-5">
+                                        <h3 class="text-dark">{{ current.wind_dir_degrees }}°</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">  
+                <div class="shadow p-3 mb-5 bg-body rounded">
+                    <img src="data:image/png;base64,{{ graphic|safe }}" style="max-height: 290px;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="shadow p-3 mb-2 bg-dark rounded">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-white">
+                            Pronósticos
+                        </h6>
+                        <h6 class="text-white">
+                            Estación 78
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="splide" id="initial-splide">
+                <div class="splide__track">
+                    <div class="splide__list pronostico-counter">
+                        {% for i in future %}
+                            <div class="col-sm-4 splide__slide m-2">
+                                <div class="shadow p-3 mb-2 bg-body rounded">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="col-2">
+                                            <i class="fas fa-chart-line my-icons" style="font-size: large;"></i>
+                                        </div>
+                                        <div class="col-10 align-items-center">
+                                            <div class="row">
+                                                <h6 class="text-info">{{ i.fecha }}</h6>
+                                            </div>
+                                            <div class="d-flex justify-content-between mt-4 mb-5">
+                                                <i class="fas fa-thermometer-half my-icons" style="font-size: large;"></i>
+                                                <h6 class="text-secondary" style="font-size: small;">min.&nbsp;{{ i.temp_min_c }}°C</h6>
+                                                <h6 class="text-dark">{{ i.temp_prom_c }}°C</h6>
+                                                <h6 class="text-secondary" style="font-size: small;">max.&nbsp;{{ i.temp_max_c }}°C</h6>
+                                            </div>
+                                            <div class="d-flex justify-content-between mt-2 mb-5">
+                                                <i class="fas fa-tint my-icons" style="font-size: large;"></i>
+                                                <h6 class="text-secondary" style="font-size: small;">min.&nbsp;{{ i.hum_min_porc }}%</h6>
+                                                <h6 class="text-dark">{{ i.hum_prom_porc }}%</h6>
+                                                <h6 class="text-secondary" style="font-size: small;">max.&nbsp;{{ i.hum_max_porc }}%</h6>
+                                            </div>
+                                            <div class="d-flex justify-content-between mt-2 mb-5">
+                                                <i class="fas fa-wind my-icons" style="font-size: large;"></i>
+                                                <h6 class="text-dark">{{ i.viento_max_kmh }}&nbsp;kmh</h6>
+                                                <h6 class="text-dark">{{ i.viento_max_mph }}&nbsp;mph</h6>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            var splide = new Splide('#initial-splide', {
+                type: 'loop',
+                perPage: 4,
+                rewind: true,
+            });
+
+            splide.mount();
+        </script>
+    </div>
+  </div>
+</div> 
+{% endblock content %}
