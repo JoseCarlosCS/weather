@@ -7,10 +7,9 @@ from io import BytesIO
 import base64
 
 
-def myplot():
-
+def myplot(direction, speed):
     ax = WindroseAxes.from_ax()
-    ax = ax.bar([175.0], [2.0], normed=True, opening=0.5, edgecolor='white')
+    ax = ax.bar([direction], [speed], normed=True, opening=0.5, edgecolor='white')
     ax = plt.legend()
     buffer = BytesIO()
     ax = plt.savefig(buffer, format='png')
