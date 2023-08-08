@@ -34,8 +34,8 @@
                                         <h6 class="text-info">Temperatura</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.temp_c }}°C</h3>
-                                        <h3 class="text-dark">{{ current.temp_f }}°F</h3>
+                                        <h4 class="text-dark">{{ current.temp_c }}°C</h4>
+                                        <h4 class="text-dark">{{ current.temp_f }}°F</h4>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                         <h6 class="text-info">Humedad Relativa</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.relative_humidity }}</h3>
+                                        <h4 class="text-dark">{{ current.relative_humidity }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                                         <h6 class="text-info">Velocidad del Viento</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.wind_kph }}kph</h3>
-                                        <h3 class="text-dark">{{ current.wind_mph }}mph</h3>
+                                        <h4 class="text-dark">{{ current.wind_kph }}kph</h4>
+                                        <h4 class="text-dark">{{ current.wind_mph }}mph</h4>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                         <h6 class="text-info">Evapotranspiración ETo</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.eto }}</h3>
+                                        <h4 class="text-dark">{{ current.eto }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                         <h6 class="text-info">Precipitación Acumulada</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.precip_today_metric }}</h3>
+                                        <h4 class="text-dark">{{ current.precip_today_metric }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                         <h6 class="text-info">Dirección del Viento</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mt-2 mb-5">
-                                        <h3 class="text-dark">{{ current.wind_dir_degrees }}°</h3>
+                                        <h4 class="text-dark">{{ current.wind_dir_degrees }}°</h4>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
             </div>
             <div class="col-sm-3">  
                 <div class="shadow p-3 mb-5 bg-body rounded">
-                    <img src="data:image/png;base64,{{ graphic|safe }}" style="max-height: 290px;">
+                    <img src="data:image/png;base64,{{ graphic|safe }}" style="max-height: 285px;">
                 </div>
             </div>
         </div>
