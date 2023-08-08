@@ -6,7 +6,7 @@ import math
 def convert_datetime(a):
     # using strptime() to get datetime object
     datetime_obj = datetime.datetime.strptime(a, '%Y-%m-%dT%H:%M:%S%z')
-    print(datetime_obj)
+    #print(datetime_obj)
     return datetime_obj
 
 
@@ -38,17 +38,18 @@ def clean_data():
     current['fecha_medicion']=convert_datetime(fecha_medicion)
     temp_c = info[0]['current_observation']['temp_c']
     temp_c = math.trunc(temp_c)
-    print(temp_c)
+    #print(temp_c)
     current['temp_c']=info[0]['current_observation']['temp_c']
     temp_f = (temp_c * 1.8) + 32 
     temp_f = math.trunc(temp_f)
-    print(temp_f)
+    #print(temp_f)
     current['temp_f']=temp_f
     current['wind_kph']=info[0]['current_observation']['wind_kph']
     current['wind_mph']=round(0.6214 * current['wind_kph'], 2)
     current['wind_dir_degrees']=info[0]['current_observation']['wind_dir_degrees']
     current['relative_humidity']=info[0]['current_observation']['relative_humidity']
     current['eto']=info[0]['current_observation']['eto']
+    current['precip_today_metric']=info[0]['current_observation']['precip_today_metric']
 
 
     
@@ -65,8 +66,8 @@ def clean_data():
         new_dict['viento_max_mph'] = i['viento_max_mph']
         future_list.append(new_dict)
 
-    print(current)
-    print(future_list)
+    #print(current)
+    #print(future_list)
     return [current, future_list]
 
 
